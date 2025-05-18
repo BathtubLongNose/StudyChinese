@@ -20,12 +20,14 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
         .content-container {
-            display: flex;
+    display: flex;
+    align-items: flex-start; /* Ensures both columns align at the top */
         }
-        .column {
-            flex: 1;
-            padding: 10px;
+
+        .column p {
+    margin-top: 0; /* Ensures no unnecessary spacing at the top */
         }
+
         .chinese-text {
             border-right: 1px solid #ccc;
             padding-right: 20px;
@@ -103,7 +105,7 @@
             </div>
             <div class="column translation-container">
                 <button id="toggle-translation">Hide Translation</button>
-                <p id="translation">Place holder</p>
+                <p id="translation" style="display: none;">Place holder</p>
             </div>
         </div>
     </div>
@@ -111,21 +113,23 @@
     <div class="spacer"></div>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            mandarinspot.annotate("#chinesetext");
-            
-            const toggleButton = document.getElementById("toggle-translation");
-            const translationText = document.getElementById("translation");
-            
-            toggleButton.addEventListener("click", function() {
-                if (translationText.style.display === "none") {
-                    translationText.style.display = "block";
-                    toggleButton.textContent = "Hide Translation";
-                } else {
-                    translationText.style.display = "none";
-                    toggleButton.textContent = "Show Translation";
-                }
-            });
-        });
+    mandarinspot.annotate("#chinesetext");
+
+    const toggleButton = document.getElementById("toggle-translation");
+    const translationText = document.getElementById("translation");
+
+    toggleButton.textContent = "Show Translation";
+
+    toggleButton.addEventListener("click", function() {
+        if (translationText.style.display === "none") {
+            translationText.style.display = "block";
+            toggleButton.textContent = "Hide Translation";
+        } else {
+            translationText.style.display = "none";
+            toggleButton.textContent = "Show Translation";
+        }
+    });
+});
     </script>
 </body>
 </html>
