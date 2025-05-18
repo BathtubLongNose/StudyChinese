@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Chinese</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .content-container {
+            display: flex;
+        }
+        .column {
+            flex: 1;
+            padding: 10px;
+        }
+        .chinese-text {
+            border-right: 1px solid #ccc;
+            padding-right: 20px;
+        }
+        .translation-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #toggle-translation {
+            margin-bottom: 10px;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .intro-section {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #eef;
+            border-radius: 5px;
+        }
+        .vocab-list {
+            text-align: left;
+            margin-top: 10px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+        h1, h2 {
+            text-align: center;
+            width: 100%;
+        }
+        .spacer {
+            height: 50px;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #007bff;
+        }
+    </style>
+    <script src="//mandarinspot.com/static/mandarinspot.min.js" charset="UTF-8" defer></script>
+</head>
+<body>
+    <h1>Atricle 1</h1>
+    <div class="container">
+        <div class="intro-section">
+            <h2>Introduction & Comments</h2>
+            <p>Topic: Geology (Level 2+)<br>
+            Orientation: A commentary on Chinese tourists</p>
+            <div class="vocab-list">
+                <h3>Important Vocabulary</h3>
+                <ul>
+                    <li>Word 1 - Definition</li>
+                    <li>Word 2 - Definition</li>
+                    <li>Word 3 - Definition</li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-container">
+            <div class="column chinese-text">
+                <p id="chinesetext">
+                    中国游客到处横行无忌——在飞机走道上打架,在古迹刻下自己<br>
+                    的名字,还在深受喜爱的景点和神圣的佛教寺院留下垃圾。这种粗鲁<br>
+                    的行为令中国政府十分尴尬。但这种不守规矩的行为却难说是 21 世纪<br>
+                    中国人的专利。实际上,它是旅游业本身难以避免的一部分。<br>
+                  <br>
+                    现代旅游以壮游在 18 世纪的崛起为开端。当时,年轻的英国绅<br>
+                    士遍访法国和意大利各地,表面上看是为了通过览古追昔增进学识。<br>
+                    不过,他们把壮游变成了一场没完没了的单身派对,畅快痛饮,在酒<br>
+                    馆里赌博嫖妓。镀金时代的美国黄石国家公园刚建好的时候,城里来<br>
+                    的人们在温泉里洗袜子,把名字刻在脆弱的火山岩上,还削一些碎片<br>
+                    下来装饰自家的壁炉架。<br>
+                  <br>
+                    在当下的大众旅游时代,「最不受欢迎的游客」的名号以越来越<br>
+                    快的速度在全球范围内传递。中产阶层有了出游的能力,随即被其他<br>
+                    国家斥为无礼的乡下人、与文明社会不相称的外地暴发户。嘲弄其他<br>
+                    游客的不当言行,却对自己的视而不见,这似乎是人类的天性。<br>
+                </p>
+            </div>
+            <div class="column translation-container">
+                <button id="toggle-translation">Hide Translation</button>
+                <p id="translation">
+				        Place holder
+				        </p>
+            </div>
+        </div>
+    </div>
+    <a href="index.html">Back to Home</a>
+    <div class="spacer"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            mandarinspot.annotate("#chinesetext");
+            
+            const toggleButton = document.getElementById("toggle-translation");
+            const translationText = document.getElementById("translation");
+            
+            toggleButton.addEventListener("click", function() {
+                if (translationText.style.display === "none") {
+                    translationText.style.display = "block";
+                    toggleButton.textContent = "Hide Translation";
+                } else {
+                    translationText.style.display = "none";
+                    toggleButton.textContent = "Show Translation";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
